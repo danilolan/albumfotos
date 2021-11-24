@@ -1,0 +1,119 @@
+.header{  
+    background-color: #fff;
+    width: 100%;
+    height: 10vh;
+    min-height: max-content;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    font-weight: 400;
+    
+
+    .search-link{
+        margin: 0px 20px;
+        padding: 5px;
+        border-radius: 5px;
+        display: grid;
+        text-decoration: none;
+        color: #000;
+        font-size: 20px;
+        grid-template-columns: 1fr 80px;
+        align-items: center;
+        width: 32px;
+        overflow: hidden;
+        transition: 0.5s;
+
+        &:hover{
+            background-color: #0002;
+            width: 112px;
+        }
+    }
+    .other-links{
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100%;
+        width: 100%;
+        padding: 0px;
+
+        a{
+            text-decoration: none;
+            color: #000;
+            letter-spacing: 2px;
+            font-size: 18px;
+            padding: 5px;
+            transition: 0.2s;
+            margin: 0px 10px;
+
+            &:hover{
+                color: #0009;
+            }
+        }
+
+        .home{
+            font-size: 20px;
+            height: max-content;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            transition: 0.5s;
+
+            &:hover{
+                color: #000;
+                border: 1px solid #000;
+                background-color: #fff;
+            }
+        }
+
+    }
+
+    .mobile-menu-icon{
+        display: none;
+    }
+
+    @media (max-width: 700px) {
+
+        .search-link{
+            width: 112px;
+        }
+        .other-links{
+            position: absolute;
+            top: 10vh;
+            right: 0;
+            width: 50vw;
+            height: 92vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #fff;
+            margin: 0px;
+            transform: translateX(100%);
+            transition: transform 0.5s ease-in;
+
+            &.active{
+                transform: translateX(0);
+            }
+
+            
+        }
+        .mobile-menu-icon{
+            display: flex;
+            justify-content: flex-end;
+            margin: 0px 20px;
+            
+
+            img{
+                border-radius: 0;
+                padding: 10px;
+                transition: 0.5s;
+                &:hover{
+                    cursor: pointer;
+                    background-color: #0002;
+                }
+            }
+        }
+    }
+
+}
