@@ -1,14 +1,26 @@
 import React from 'react';
+
+//---Styles---
 import './app.scss';
 
+//---Others---
 import api from '../services/api'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from '../services/Routes'
+
+//---Components---
+import Header from '../components/header/Header';
+
 
 function App() {
 
-  return (
+  return(
+  <BrowserRouter>
     <div className="app">
-      
-    </div>
+        <Header/>
+        <Routes/>
+      </div>
+  </BrowserRouter>   
   );
 }
 
