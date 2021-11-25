@@ -10,8 +10,33 @@ root{
     align-items: center;
     flex-direction: column;
     margin: 20px;
+    position: relative;
 
     .photos{
         display: flex;
+
+        .column-1{
+            transform: translateY(-400px);
+        }
+        .column-4{
+            transform: translateY(-400px);
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .home{
+
+        .photos{
+            display: grid;
+            grid-template-columns: 1fr;
+            transform: translateY(-350px);
+            .column-1{
+                transform: translateY(0px);
+            }
+            .column-4{
+                transform: translateY(0px);
+            }
+        }
     }
 }

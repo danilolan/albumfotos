@@ -4,7 +4,6 @@ import React from 'react';
 import './app.scss';
 
 //---Others---
-import api from '../services/api'
 import { BrowserRouter } from 'react-router-dom'
 import Routes from '../services/Routes'
 
