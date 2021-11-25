@@ -4,7 +4,7 @@
     width: max-content;
     margin: 20px;
     img{
-        max-width: 233px;
+        /* max-width: 233px; */
         border-radius: 5px;
         transition: 0.5s;
         &:hover{
@@ -25,3 +25,19 @@
         }
     }
 }
+@media (min-width: 1100px) {
+    img{
+        max-width: 233px;
+    }
+}
+@media (max-width: 1100px) {
+    img{
+        max-width: 150px;
+    }
+}
+@media (max-width: 800px) {
+    img{
+        max-width: 400px;
+    }
+}
+
