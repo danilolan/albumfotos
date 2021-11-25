@@ -1,0 +1,17 @@
+root{
+    --inv: #000;
+    --def: #fff;
+}
+
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+
+    .photos{
+        display: flex;
+    }
+}
