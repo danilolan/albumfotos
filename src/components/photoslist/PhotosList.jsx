@@ -8,41 +8,54 @@ import Photo from '../../components/photo/Photo'
 
 function PhotosList(props) {
     const photos = props.photos
+    const col1 = []
+    const col2 = []
+    const col3 = []
+    const col4 = []
+    let indexCol = 1
 
     if(photos){
-        const length = photos.length
+        //Creating each column
+        photos.forEach( photo => {
+            switch(indexCol){
+                case (1):
+                    indexCol = 2
+                    return col1.push(photo)
+                    
+    
+                case (2):
+                    indexCol = 3
+                    return col2.push(photo)
+    
+                case (3): 
+                    indexCol = 4
+                    return col3.push(photo)
+    
+                case (4):
+                    indexCol = 1
+                    return col4.push(photo)
+            }
+        })
         return ( 
                 <div className="photoslist">
                     <div className="column-1">
-                        {photos.map( (photo, index) => {
-                            if(index < (length * 0.25))
-                                return <Photo photoData={photo} type='large' showAutor={true}/>                     
-                            else 
-                                return <></>
+                        {col1.map( (photo, index) => {
+                            return <Photo photoData={photo} type='large' showAutor={true}/>                     
                         })}
                     </div>
                     <div className="column-2">
-                        {photos.map( (photo, index) => {
-                            if(index >= (length * 0.25) && index < (length * 0.5))
+                        {col2.map( (photo, index) => {
                             return <Photo photoData={photo} type='large' showAutor={true}/>                     
-                            else 
-                                return <></>
                         })}
                     </div>
                     <div className="column-3">
-                        {photos.map( (photo, index) => {
-                            if(index >= (length * 0.5) && index < (length * 0.75))
-                            return <Photo photoData={photo} type='large' showAutor={true}/>                     
-                            else 
-                                return <></>
+                        {col3.map( (photo, index) => {
+                            return <Photo photoData={photo} type='large' showAutor={true}/>
                         })}
                     </div>
                     <div className="column-4">
-                        {photos.map( (photo, index) => {
-                            if(index >= (length * 0.75) && index < length)
-                            return <Photo photoData={photo} type='large' showAutor={true}/>                     
-                            else 
-                                return <></>
+                        {col4.map( (photo, index) => {
+                            return <Photo photoData={photo} type='large' showAutor={true}/>
                         })}
                     </div>
                 </div>
