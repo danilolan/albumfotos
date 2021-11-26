@@ -1,0 +1,10 @@
+.photoslist{
+    display: flex;
+}
+
+@media (max-width: 800px) {
+    .photoslist{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

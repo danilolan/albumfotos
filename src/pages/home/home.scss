@@ -14,8 +14,6 @@ root{
     overflow: hidden;
 
     .photoslist{
-        display: flex;
-
         .column-1{
             transform: translateY(-400px);
         }
@@ -28,7 +26,7 @@ root{
 @media (max-width: 800px) {
     .home{
 
-        .photos{
+        .photoslist{
             display: grid;
             grid-template-columns: 1fr;
             transform: translateY(-350px);
