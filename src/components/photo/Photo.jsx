@@ -10,7 +10,7 @@ function Photo(props) {
 
     return ( photoData ? 
         <li className="photo" key={photoData.id.toString()}>
-            <img src={photoData.src[type]} alt="loading..." loading="lazy"/>
+            <img src={photoData.src[type]} alt="loading..."/>
             {showAutor ? <a className="autor" href={photoData.photographer_url}>{photoData.photographer}</a> : <></>}
         </li>
         :

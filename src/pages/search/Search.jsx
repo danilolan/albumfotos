@@ -12,6 +12,7 @@ import api from '../../services/api'
 //---Components---
 import Parameter from './parameter/Parameter';
 import PhotosList from '../../components/photoslist/PhotosList'
+import LoadMore from '../../components/loadmore/LoadMore';
 
 //Initial state function to query
 function initialState(){
@@ -24,9 +25,7 @@ function initialState(){
 }
 function Search() {
     const [query, setQuery] = useState(initialState)
-    const [photos, setPhotos] = useState()
-    console.log(photos)
-    console.log(query)
+    const [photosArray, setPhotosArray] = useState()
 
     //Submit
     function onSubmit(e){
@@ -35,13 +34,14 @@ function Search() {
         //Search photos
         if(query.text !== ''){
             api.photos.search({
-                query: query.text, 
-                per_page: 20, 
+                per_page: 20,
+                page: currentPage,
+                query: query.text,   
                 orientation: query.orientation, 
                 size: query.size, 
                 color: query.color
             }).then(photos => {
-                setPhotos(photos) 
+                setPhotosArray(photos.photos) 
             });
         }
     }
@@ -50,18 +50,19 @@ function Search() {
     useEffect(() => {
         if(query.text !== ''){
             api.photos.search({
-                query: query.text, 
-                per_page: 20, 
+                per_page: 20,
+                page: currentPage,
+                query: query.text,   
                 orientation: query.orientation, 
                 size: query.size, 
                 color: query.color
             }).then(photos => {
-                setPhotos(photos) 
+                setPhotosArray(photos.photos) 
             });
         }
     }, [query.orientation,query.size,query.color])
 
-
+    //Get parameters
     function getOrientation(option){
         if(option !== 'All')
             setQuery({...query, orientation: option})
@@ -76,6 +77,23 @@ function Search() {
         if(option !== 'All')
             setQuery({...query, color: option})
     }
+
+    //loadMore
+    const [currentPage, setCurrentPage] = useState(1)
+    useEffect(() => {
+        if(query.text !== ''){
+            api.photos.search({
+                per_page: 20,
+                page: currentPage,
+                query: query.text,   
+                orientation: query.orientation, 
+                size: query.size, 
+                color: query.color
+            }).then(photos => {
+                setPhotosArray(photosArray.concat(photos.photos)) 
+            });
+        }
+    }, [currentPage]);
 
     return ( 
         <div className="search">
@@ -107,7 +125,8 @@ function Search() {
                     />
                 </div>
             </form>
-            <PhotosList photos={photos}/>
+            <PhotosList photos={photosArray}/>
+            {photosArray ? <LoadMore loadMore={e => setCurrentPage(currentPage + 1)}/> : <></>}
         </div>
      );
 }

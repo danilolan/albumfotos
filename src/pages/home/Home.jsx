@@ -15,7 +15,7 @@ function Home() {
 
     useEffect(() => {
         api.photos.curated({ per_page: 20 }).then(photos => {
-           setPhotos(photos) 
+           setPhotos(photos.photos) 
         });
     }, [])
 
