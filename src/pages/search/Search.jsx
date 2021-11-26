@@ -80,20 +80,9 @@ function Search() {
 
     //loadMore
     const [currentPage, setCurrentPage] = useState(1)
-    useEffect(() => {
-        if(query.text !== ''){
-            api.photos.search({
-                per_page: 20,
-                page: currentPage,
-                query: query.text,   
-                orientation: query.orientation, 
-                size: query.size, 
-                color: query.color
-            }).then(photos => {
-                setPhotosArray(photosArray.concat(photos.photos)) 
-            });
-        }
-    }, [currentPage]);
+    function getDataLoadMore(data){
+        setPhotosArray(photosArray.concat(data))
+    }
 
     return ( 
         <div className="search">
@@ -126,7 +115,13 @@ function Search() {
                 </div>
             </form>
             <PhotosList photos={photosArray}/>
-            {photosArray ? <LoadMore loadMore={e => setCurrentPage(currentPage + 1)}/> : <></>}
+            {photosArray ? <LoadMore 
+                                loadMore={() => setCurrentPage(currentPage + 1)} 
+                                query={query} 
+                                page={currentPage}
+                                getData={getDataLoadMore} 
+                            /> 
+            : <></>}
         </div>
      );
 }
