@@ -26,6 +26,7 @@ function initialState(){
 function Search() {
     const [query, setQuery] = useState(initialState)
     const [photosArray, setPhotosArray] = useState()
+    console.log(photosArray)
 
     //Submit
     function onSubmit(e){
@@ -115,13 +116,14 @@ function Search() {
                 </div>
             </form>
             <PhotosList photos={photosArray}/>
-            {photosArray ? <LoadMore 
-                                loadMore={() => setCurrentPage(currentPage + 1)} 
-                                query={query} 
-                                page={currentPage}
-                                getData={getDataLoadMore} 
-                            /> 
-            : <></>}
+            <LoadMore 
+                loadMore={() => setCurrentPage(currentPage + 1)} 
+                query={query} 
+                page={currentPage}
+                getData={getDataLoadMore} 
+                isRender={photosArray ? true : false}
+            />
+ 
         </div>
      );
 }
