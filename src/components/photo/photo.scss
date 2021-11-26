@@ -4,8 +4,7 @@
     width: max-content;
     margin: 20px;
     img{
-        /* max-width: 233px; */
-        border-radius: 5px;
+        border-radius: 2px;
         transition: 0.5s;
         &:hover{
             cursor: pointer;
@@ -25,24 +24,37 @@
         }
     }
 }
+
 @media (min-width: 1100px) {
     img{
         max-width: 233px;
+    }
+    .place-holder{
+        width: 233px;
     }
 }
 @media (max-width: 1100px) {
     img{
         max-width: 150px;
     }
+    .place-holder{
+        width: 150px;
+    }
 }
 @media (max-width: 800px) {
     img{
-        max-width: 400px;
+        width: 400px;
+    }
+    .place-holder{
+        width: 400px;
     }
 }
 
 @media (max-width: 500px) {
     img{
         max-width: 300px;
+    }
+    .place-holder{
+        width: 300px;
     }
 }

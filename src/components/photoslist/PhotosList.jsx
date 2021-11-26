@@ -21,8 +21,7 @@ function PhotosList(props) {
                 case (1):
                     indexCol = 2
                     return col1.push(photo)
-                    
-    
+
                 case (2):
                     indexCol = 3
                     return col2.push(photo)
@@ -34,6 +33,9 @@ function PhotosList(props) {
                 case (4):
                     indexCol = 1
                     return col4.push(photo)
+
+                default:
+                    return 
             }
         })
         return ( 
