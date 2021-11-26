@@ -11,8 +11,9 @@ root{
     flex-direction: column;
     margin: 20px;
     position: relative;
+    overflow: hidden;
 
-    .photos{
+    .photoslist{
         display: flex;
 
         .column-1{
