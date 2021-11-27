@@ -26,7 +26,7 @@ function initialState(){
 function Search() {
     const [query, setQuery] = useState(initialState)
     const [photosArray, setPhotosArray] = useState()
-    console.log(photosArray)
+    const [totalResults, setTotalResults] = useState()
 
     //Submit
     function onSubmit(e){
@@ -43,6 +43,7 @@ function Search() {
                 color: query.color
             }).then(photos => {
                 setPhotosArray(photos.photos) 
+                setTotalResults(photos.total_results)
             });
         }
     }
@@ -87,6 +88,7 @@ function Search() {
 
     return ( 
         <div className="search">
+            
             <form onSubmit={onSubmit}>
                 <div className="search-bar">
                     <img src={searchIcon} alt="loading..." />
@@ -97,6 +99,7 @@ function Search() {
                         placeholder='Search nature, art, universe, etc.'
                     />
                 </div>
+
                 <div className="parameters">
                     <Parameter 
                         title='Orientation' 
@@ -115,6 +118,14 @@ function Search() {
                     />
                 </div>
             </form>
+
+            <div 
+                className="total-results"
+                style={ totalResults ? {} : {display:'none'}}
+            >
+                Total results: {totalResults}
+            </div>
+
             <PhotosList photos={photosArray}/>
             <LoadMore 
                 loadMore={() => setCurrentPage(currentPage + 1)} 
