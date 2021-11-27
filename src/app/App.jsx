@@ -9,6 +9,7 @@ import Routes from '../services/Routes'
 
 //---Components---
 import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <div className="app">
         <Header/>
         <Routes/>
+        <Footer/>
       </div>
   </BrowserRouter>   
   );
