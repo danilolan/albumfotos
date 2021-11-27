@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 //---Styles---
 import './photomodal.scss'
+
+//---Assets---
 import closeImg from '../../../assets/close.png'
 
 const portalRoot = document.getElementById('portal-root')

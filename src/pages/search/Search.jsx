@@ -35,7 +35,7 @@ function Search() {
         //Search photos
         if(query.text !== ''){
             api.photos.search({
-                per_page: 20,
+                per_page: 40,
                 page: currentPage,
                 query: query.text,   
                 orientation: query.orientation, 
@@ -52,7 +52,7 @@ function Search() {
     useEffect(() => {
         if(query.text !== ''){
             api.photos.search({
-                per_page: 20,
+                per_page: 40,
                 page: currentPage,
                 query: query.text,   
                 orientation: query.orientation, 
@@ -82,6 +82,7 @@ function Search() {
 
     //loadMore
     const [currentPage, setCurrentPage] = useState(1)
+    console.log(photosArray)
     function getDataLoadMore(data){
         setPhotosArray(photosArray.concat(data))
     }

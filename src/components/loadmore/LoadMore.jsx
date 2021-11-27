@@ -15,7 +15,7 @@ function LoadMore(props) {
         if(query.text !== ''){
             setisDone(false)
             api.photos.search({
-                per_page: 20,
+                per_page: 40,
                 page: page,
                 query: query.text,   
                 orientation: query.orientation, 
