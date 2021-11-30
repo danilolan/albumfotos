@@ -1,8 +1,10 @@
 # Álbum de Fotos
+https://albumfotos.netlify.app
 
 # Sobre o projeto
 
 Uma aplicação para pesquisa, seleção e visualização de fotos fornecida pela API Pexels (https://www.pexels.com).
+Uma api key foi fornecida no arquivo .env entretanto para produção deve ser usada uma key própria.
 
 ## Layout web
 
