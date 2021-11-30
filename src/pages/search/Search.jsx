@@ -82,7 +82,6 @@ function Search() {
 
     //loadMore
     const [currentPage, setCurrentPage] = useState(1)
-    console.log(photosArray)
     function getDataLoadMore(data){
         setPhotosArray(photosArray.concat(data))
     }
@@ -102,17 +101,17 @@ function Search() {
                 </div>
 
                 <div className="parameters">
-                    <Parameter 
+                    <Parameter
                         title='Orientation' 
                         options={['Landscape','Portrait','Square','All']}
                         getOption={getOrientation}
                     />
-                    <Parameter 
+                    <Parameter
                         title='Size' 
                         options={['Large','Medium','Small','All']}
                         getOption={getSize}
                     />
-                    <Parameter 
+                    <Parameter
                         title='Color' 
                         options={['All','Red','Orange','Yellow','Green','Turquoise','Blue','Pink','Brown','Black','Gray','White']}
                         getOption={getColor}

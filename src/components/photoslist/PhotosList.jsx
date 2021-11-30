@@ -41,22 +41,22 @@ function PhotosList(props) {
         return ( 
                 <div className="photoslist">
                     <div className="column-1">
-                        {col1.map( (photo, index) => {
+                        {col1.map( (photo) => {
                             return <Photo photoData={photo} type='large' showAutor={true}/>                     
                         })}
                     </div>
                     <div className="column-2">
-                        {col2.map( (photo, index) => {
+                        {col2.map( (photo) => {
                             return <Photo photoData={photo} type='large' showAutor={true}/>                     
                         })}
                     </div>
                     <div className="column-3">
-                        {col3.map( (photo, index) => {
+                        {col3.map( (photo) => {
                             return <Photo photoData={photo} type='large' showAutor={true}/>
                         })}
                     </div>
                     <div className="column-4">
-                        {col4.map( (photo, index) => {
+                        {col4.map( (photo) => {
                             return <Photo photoData={photo} type='large' showAutor={true}/>
                         })}
                     </div>

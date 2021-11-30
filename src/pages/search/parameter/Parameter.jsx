@@ -21,7 +21,7 @@ function Parameter(props) {
                 {props.options.map( (option,index) => {
                     if(props.title === 'Color'){
                         if(option === 'All')
-                            return <img src={noneIcon} alt="loading..." className="color" onClick={ () => optionClick(option)} style={{boxShadow: 'none'}}/>
+                            return <img key={index} src={noneIcon} alt="loading..." className="color" onClick={ () => optionClick(option)} style={{boxShadow: 'none'}}/>
                         else
                             return <div key={index} className="color" style={{background: option}} onClick={ () => optionClick(option) }/>                         
                     }

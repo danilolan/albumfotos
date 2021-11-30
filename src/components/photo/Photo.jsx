@@ -21,7 +21,7 @@ function Photo(props) {
         const aspectRatio = `${photoData.width} / ${photoData.height}`
         
         return (
-            <li className="photo" key={photoData.id.toString()}>
+            <li className="photo" key={photoData.id}>
                 {isLoaded ? null : 
                     <div  className="place-holder" style={{
                         aspectRatio: aspectRatio,
